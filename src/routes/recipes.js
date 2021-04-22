@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
 const express = require('express');
 
-const Recipe = require('../models/recipes')
+const Recipe = require('../models/recipes');
 
 const recipes = new Recipe();
 
@@ -24,26 +24,26 @@ function getRecipes(req, res) {
 function getOneRecipe(req, res){
   const id = parseInt(req.params.id);
   let oneRecipe = recipes.read(id);
-  res.status(200).json(oneRecipe)
+  res.status(200).json(oneRecipe);
 }
 
 function createRecipe(req, res){
   let recipeContent = req.body;
   let createdRecipe = recipes.create(recipeContent);
-  res.status(201).json(createdRecipe)
+  res.status(201).json(createdRecipe);
 }
 
 function updateRecipe(req, res){
   const id = parseInt(req.params.id);
   let recipeContent = req.body;
-  let oneRecipe = recipes.update(id, recipeContent)
-  res.status(200).json(oneRecipe)
+  let oneRecipe = recipes.update(id, recipeContent);
+  res.status(200).json(oneRecipe);
 }
 
 function deleteRecipe(req, res){
   const id = parseInt(req.params.id);
   recipes.delete(id);
-  res.status(200).json(null)
+  res.status(200).json(null);
 
 }
 
